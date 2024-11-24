@@ -3,21 +3,27 @@ import { motion } from "framer-motion";
 
 export default function Header({ isLoaded }) {
   return (
-    <header className="text-center px-6 mt-2 bg-black py-8">
+    <header className="px-6 mt-1 bg-gradient-to-b from-gray-900 via-black to-black py-10 relative">
+      {/* Optional Background Effect */}
+      <div className="absolute inset-0">
+        {/* Example: Add particle animation or shapes */}
+        <div className="bg-gradient-radial from-blue-500 via-transparent to-black opacity-20 w-full h-full"></div>
+      </div>
+
       {/* Main Heading */}
-      <h1 className="font-extrabold flex items-center justify-center">
+      <h1 className="relative font-extrabold flex items-center md:justify-center z-10">
         {/* Desktop View */}
         <motion.span
           initial={{ opacity: 0, x: -20 }}
           animate={isLoaded ? { opacity: 1, x: 0 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="block text-white text-3xl sm:text-4xl md:text-5xl font-extrabold"
+          className="block text-white text-4xl sm:text-4xl md:text-5xl font-extrabold"
           aria-label="Main Greeting"
         >
           {/* For smaller screens, show the full name with breaks */}
           <span className="md:whitespace-nowrap">
             Hello, I’m{" "}
-            <span className="block sm:inline text-[#FF0B0B]">
+            <span className="block sm:inline bg-gradient-to-r from-blue-400 to-teal-300 text-transparent bg-clip-text">
               Raunak Kaushal
             </span>
           </span>
@@ -29,11 +35,11 @@ export default function Header({ isLoaded }) {
         initial={{ opacity: 0, y: 10 }}
         animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0 }}
         transition={{ duration: 1, delay: 0.8 }}
-        className="text-lg sm:text-xl md:text-2xl mt-4 text-white"
+        className="relative md:text-center text-lg sm:text-xl md:text-2xl mt-4 text-gray-300 z-10"
         aria-label="Job Title"
       >
         A passionate{" "}
-        <span className="text-[#FF0B0B] font-semibold">
+        <span className="font-semibold text-teal-400">
           Full Stack Developer
         </span>
         .
@@ -44,7 +50,7 @@ export default function Header({ isLoaded }) {
         initial={{ opacity: 0, y: 10 }}
         animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0 }}
         transition={{ duration: 1, delay: 1.0 }}
-        className="text-gray-300 mt-2 text-sm sm:text-base md:text-lg max-w-2xl mx-auto"
+        className="relative md:text-center text-gray-400 mt-2 text-sm sm:text-base md:text-lg max-w-2xl mx-auto z-10"
         aria-label="Description"
       >
         MERN stack developer focused on building scalable web apps with seamless
